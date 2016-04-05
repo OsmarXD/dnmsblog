@@ -1,0 +1,45 @@
+<div class="widewrapper main">
+  <div class="container about">
+    <h1>Hello There, I’m <span class="about-bold">Kevin!</span></h1>
+    <span class="about-large">I’m a <span class="about-italic">web developer, entrepreneur</span> placeholder <span class="about-italic">placeholder</span>. <br> <%= image_tag "about-me.png", class: "about-portrait img-responsive" %> </span>
+    <span class="about-medium">placeholder</span> <span class="about-small"> I'm in love with <span class="about-italic">Ruby on Rails</span>, <span class="about-italic">placeholder</span>, <span class="about-italic">placeholder</span> placeholder <span class="about-italic">placeholder</span>. I use this Blog to share my experiences and my knowledge, as a young dad, with the world.</span>
+
+    <div class="about-button">
+      <%= link_to 'Drop Me A Line', '#contact', class: "btn btn-xlarge btn-tales-one" %>
+    </div>
+    <hr>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 tales-superblock">
+        <h2>Social</h2>
+        <div class="social-icons clearfix">
+          <%= link_to("#", class: "social-icon color-one") do %>
+            <div class="inner-circle" ></div>
+            <i class="fa fa-google-plus"></i>  
+          <% end %>
+         
+          <%= link_to("#", class: "social-icon color-two") do %>
+            <div class="inner-circle" ></div>
+            <i class="fa fa-twitter"></i>  
+          <% end %>
+
+          <%= link_to("#", class: "social-icon color-three") do %>
+            <div class="inner-circle" ></div>
+            <i class="fa fa-github-alt"></i>  
+          <% end %>
+        </div>
+        
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 tales-superblock" id="contact">
+        <h2>Contact</h2>
+        
+				<%= render 'form' %>
+      </div>
+    </div>        
+  </div>
+</div>

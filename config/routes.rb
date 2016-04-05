@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
+  resources :post_comments
+  resources :posts
+  resources :comments
   devise_for :users
-  root "pages#home"
-  get "about" => "pages#about"
+  root "posts#index"
+  get "about"        => "pages#about"
+  get "about_me"     => "comments#new"
+  get "blog_details" => "pages#blog_details"
+  get "credits"      => "pages#credits"
+  # get "home"         => "pages#home"
+  get "index"        => "pages#index"
+  get "starter"      => "pages#starter"
 
+  get 'messages'     => 'comments#index'
+  get 'posts_comments'        => 'post_comments#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

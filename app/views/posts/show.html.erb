@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div class="widewrapper main">
+  <div class="container">
+  	<div class="row">
+    	<div class="col-md-8 blog-main">
+        <article class="blog-post">
+            <header>
+                <h1><%= @post.title %></h1>
+                <div class="lead-image">
+                    <%= image_tag @post.image.url, class: "img-responsive" %>
+                    <div class="meta clearfix">
+          
+                        <div class="author">
+                            <i class="fa fa-user"></i>
+                            <span class="data"><%= @post.user %></span>
+                        </div>
+                        <div class="date">
+                            <i class="fa fa-calendar"></i>
+                            <span class="data"><%= @post.created_at %></span>
+                        </div>
+                        <div class="comments">
+                            <i class="fa fa-comments"></i>
+                            <span class="data"><a href="#comments"><%= @post.post_comments.length %> Comments</a></span>
+                            <!-- erb @post.content  erb -->
+                        </div>                                
+                    </div>
+                </div>
+            </header>
+            <div class="body">
+                <%= @post.content %>
+            </div>
+        </article>
+
+        
+
+       <div class="fb-like" data-href=<%= "http://localhost:3666/posts/#{@post.id}" %> data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+        
+           <h1>eie</h1>
+        <div class="fb-comments" data-href=<%= "http://localhost:3666/posts/#{@post.id}" %> data-numposts="5"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+ 	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Back', posts_path %> 
+<% end %>  
