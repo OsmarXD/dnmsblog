@@ -52,6 +52,27 @@
 
         </div>
       </div>
+
+       <aside class="col-md-4 blog-aside">
+          
+        <div class="aside-widget">
+          <header>
+            <h3>Recent Blogs</h3>
+          </header>
+          <div class="body">
+            <div class="col-md-4 footer-widget">
+                <ul class="tales-list">  
+                    <% Post.find_each(batch_size: 2) do |post| %>
+                        <li>
+                            <%= link_to post.title, "#" %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
     </div>
   </div>
 </div>

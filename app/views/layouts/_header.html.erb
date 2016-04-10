@@ -76,13 +76,15 @@
                 </div> -->
 
                 <div class="tales-searchbox">
-                    <form action="#" method="get" accept-charset="utf-8">
-                        <button class="searchbutton" type="submit">
-                            <span class= "glyphicon glyphicon-search"></span>
-                        </button>
-                        <input class="searchfield" id="searchbox" type="text" placeholder="Search">
-                    </form>
+                  <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                    <span class= "glyphicon glyphicon-search"></span>
+                    <%= submit_tag "Click", class: "searchbutton" %>
+                    <%= text_field_tag :search, params[:search], class: "searchfield", id: "searchbox",placeholder: "Search Posts" %>
+                  <% end %>
                 </div>
+
+               
+
             </div>
         </div>
 
