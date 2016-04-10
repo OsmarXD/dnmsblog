@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control input-lg", placeholder: "Title" %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, rows: "10", class: "form-control input-lg", placeholder: "Content" %>
   </div>
   <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "form-control input-lg", placeholder: "Website" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-xlarge btn-tales-one" %>
   </div>
 <% end %>

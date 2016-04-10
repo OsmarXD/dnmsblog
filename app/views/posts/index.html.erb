@@ -14,12 +14,15 @@
                   <h3><%= post.title %></h3><!-- <h3><a href="blog-detail.html">Cats Everywhere</a></h3> -->
                      <!-- erb post.created_at.to_s %>  -->
                      <!-- <span class="meta">24 July 2013, Alexander Rechsteiner</span> -->
-                     <%= post.created_at.to_s.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 12);ob << (" " + x)}.strip %>
+                  <span class="glyphicon glyphicon-calendar" > </span>
+                  <span> <%= post.created_at.to_s.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 12);ob << (" " + x)}.strip %> </span>   
                   
                   <% user = post.user %>
                   <% if user != nil %>
                     <% if  user.name != nil%>
-                      <span>, <%= user.name %> </span>
+                      <span>, </span>
+                      <span class="glyphicon glyphicon-pencil" > </span>
+                      <span> <%= user.name %> </span>
                     <% end %>
                   <% end %>  
                   
@@ -52,7 +55,6 @@
     </div>
   </div>
 </div>
-
 
 
 <!-- <div class="widewrapper main">

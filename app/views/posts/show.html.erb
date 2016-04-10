@@ -12,11 +12,24 @@
                     <div class="meta clearfix">
           
                         <div class="author">
-                            <i class="fa fa-user"></i>
-                            <span class="data"><%= @post.user %></span>
+                            <span class="data">
+                                <% user = @post.user %>
+                                <% if user != nil %>
+                                    <% if  user.name != nil%>
+                                    <span class="glyphicon glyphicon-pencil" > </span>
+                                        <span> 
+                                            <%= user.name %> 
+                                            <% if user_signed_in? %>
+                                                <%= link_to 'Edit', edit_post_path(@post) %> |
+                                                <%= link_to 'Back', posts_path %> 
+                                            <% end %>
+                                        </span>
+                                    <% end %>
+                                <% end %>  
+                            </span>
                         </div>
                         <div class="date">
-                            <i class="fa fa-calendar"></i>
+                            <span class="glyphicon glyphicon-calendar" > </span>
                             <span class="data"><%= @post.created_at.to_s.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 12);ob << (" " + x)}.strip %>
                             </span>
                         </div>                             
@@ -31,16 +44,10 @@
         
 
        <div class="fb-like" data-href=<%= "https://dnmsblog.herokuapp.com/posts/#{@post.id}" %> data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-        
-           <h1>eie</h1>
-        <div class="fb-comments" data-href=<%= "http://localhost:3666/posts/#{@post.id}" %> data-numposts="5"></div>
+        <br>
+       <div class="fb-comments" data-href=<%= "http://localhost:3666/posts/#{@post.id}" %> data-numposts="5"></div>
 
       </div>
     </div>
   </div>
 </div>
-
-<% if user_signed_in? %>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %> 
-<% end %>
