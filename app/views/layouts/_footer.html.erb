@@ -10,27 +10,30 @@
                     <div class="stats">
                         <div class="line">
                             <span class="counter"><%= Post.all.length %></span>
-                            <span class="caption">Articles</span>
+                            <span class="caption"><%= pluralize(Post.all.length, 'Article') %></span>
+                            
                         </div>
                         <div class="line">
-                            <span class="counter"><%= PostComment.all.length %></span>
-                            <span class="caption">Comments</span>
+                            <span class="counter"><%= Comment.all.length %></span>
+                            <span class="caption"><%= pluralize(Comment.all.length, 'Comment') %></span>
+                            
                         </div>
                         <div class="line">
                             <span class="counter"><%= User.all.length %></span>
-                            <span class="caption">Authors</span>
+                            <span class="caption"><%= pluralize(User.all.length, 'Author') %></span>
+                            
                         </div>                    
                     </div>
                 </div>
 
                 <div class="col-md-4 footer-widget">
                     <h3> <i class="fa fa-star"></i> Hall of Fame</h3>
-                    <ul class="tales-list">
-                        <li><a href="index.html">Why we Need to Encrypt All Communication</a></li>
-                        <li><a href="#">Selling is a Function of Design. Not Vice-Versa.</a></li>
-                        <li><a href="#">It’s Hard To Come Up With Dummy Titles</a></li>
-                        <li><a href="#">Why the Internet is Full of Cats</a></li>
-                        <li><a href="#">Last Made-Up Headline, I Swear!</a></li>
+                    <ul class="tales-list">  
+                        
+                            <li>
+                               <%= link_to "post.title", "#" %>
+                            </li>
+                       
                     </ul>
                 </div>
 

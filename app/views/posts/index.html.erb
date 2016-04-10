@@ -15,8 +15,14 @@
                      <!-- erb post.created_at.to_s %>  -->
                      <!-- <span class="meta">24 July 2013, Alexander Rechsteiner</span> -->
                      <%= post.created_at.to_s.split(" ").each_with_object("") {|x,ob| break ob unless (ob.length + " ".length + x.length <= 12);ob << (" " + x)}.strip %>
-                  <span>, </span>
-                  <%= post.user %>
+                  
+                  <% user = post.user %>
+                  <% if user != nil %>
+                    <% if  user.name != nil%>
+                      <span>, <%= user.name %> </span>
+                    <% end %>
+                  <% end %>  
+                  
                   <hr>
                 </header>
                 <div class="body">
@@ -28,7 +34,7 @@
                   <%= link_to 'Read more', post, class: "btn btn-tales-one" %>
                   <!-- <a href="blog-detail.html" class="btn btn-tales-one">Read more</a> -->
 
-                  <% if post.user == current_user %>
+                  <% if post.user == current_user && current_user %>
                     <%= link_to 'Edit', edit_post_path(post) %>
                     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
                     <%= link_to 'New', new_post_path %>
