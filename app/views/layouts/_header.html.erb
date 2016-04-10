@@ -1,84 +1,67 @@
 <header>
-  <div class="widewrapper masthead">
+    <div class="widewrapper masthead">
       <div class="container">
-          <%= link_to(root_path, id: "logo") do %>
-            Millenial Dad
-             <!-- erb image_tag 'tales-logo.png' , alt: "image"  erb -->
-          <% end %>
-          
-          <div id="mobile-nav-toggle" class="pull-right">
-              <a href="#" data-toggle="collapse" data-target=".tales-nav .navbar-collapse">
-                  <i class="fa fa-bars"></i>
-              </a>
+
+        <nav class="navbar tales-nav" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             
+            <%= link_to(root_path, id: "logo", class: "nav-brand") do %>
+             <%= image_tag 'millenial-dad.png' , alt: "logo", size:"180x180" %>
+            <% end %>
 
           </div>
 
-          <nav class="pull-right tales-nav">
-              <div class="collapse navbar-collapse">
-                  <ul class="nav nav-pills navbar-nav">
-                    
-                    <!--   <li class="dropdown">
-                          <a class="dropdown-toggle"
-                             data-toggle="dropdown"
-                             href="#">
-                              Recent Blogs 
-                              <b class="caret"></b>
-                          </a>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right nav-pills">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "About", about_me_path%></li> 
+              <li><%= link_to 'Credits', credits_path %></li> 
+              <% if user_signed_in? %>
+                <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+                <li><%= link_to 'Messages', messages_path %></li>
+                <li><%= link_to 'New post', new_post_path %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 
-                          <ul class="dropdown-menu">
-                              <li>erb link_to "Blog", index_path %></li>
-                              <li>erb link_to "Blog Detail", blog_details_path %></li>
-                          </ul>
-                      </li>
- -->
-                      
-                      <li><%= link_to "Home", root_path %></li>
-                      <li><%= link_to 'About me', about_me_path %></li>
-                      <li><%= link_to 'Credits', credits_path %></li>
-                      
-                      <% if user_signed_in? %>
-                        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-                        <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-                        <li><%= link_to 'Messages', messages_path %></li>
-                        <li><%= link_to 'Comments', posts_comments_path %></li>
-                        <li><%= link_to 'New post', new_post_path %></li>
-                      <% else %>
-                        <li><%= link_to "Sign in", new_user_session_path %></li>
-                      <% end %>                        
-                  </ul>
-              </div>
-          </nav>        
+
+              <% else %>
+                <li><%= link_to "Contact",  "about_me#contact" %></li>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
+              <% end %>   
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav> 
 
       </div>
-  </div>
 
-  <div class="widewrapper subheader">
-      <div class="container">
-          <div class="tales-breadcrumb">
-              <!-- brad crums -->
-              <!-- <a href="#">About Me</a> -->
-          </div>
+      <div class="widewrapper subheader">
+            <div class="container">
+<!-- 
+                <div class="breadcrumbs tales-breadcrumb">
+                  <span class="pretext">You are here:</span>
+                  <a href="/">Home</a> &rsaquo;
+                  <a href="/issues">All issues</a> &rsaquo;
+                  <span class="current">My Issue</span>
+                </div> -->
 
-          <div class="tales-searchbox">
-              <%= form_tag do %>
-              <% end %>
-              <form action="#" method="get" accept-charset="utf-8">
-                  <button class="searchbutton" type="submit">
-                      <i class="fa fa-search"></i>
-                  </button>
-                  <input class="searchfield" id="searchbox" type="text" placeholder="Search">
-              </form>
-          </div>
-      </div>
-  </div>
+                <div class="tales-searchbox">
+                    <form action="#" method="get" accept-charset="utf-8">
+                        <button class="searchbutton" type="submit">
+                            <span class= "glyphicon glyphicon-search"></span>
+                        </button>
+                        <input class="searchfield" id="searchbox" type="text" placeholder="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
 </header>
-
-  <!-- Brand and toggle get grouped for better mobile display -->
-            <!-- div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div> -->
