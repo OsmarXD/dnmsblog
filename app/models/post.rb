@@ -7,8 +7,4 @@ class Post < ActiveRecord::Base
 	validates :content, presence: true
 	validates :title, presence: true
 	
-	def self.search(search)
-	  where("name LIKE ?", "%#{search}%") 
-	  where("content LIKE ?", "%#{search}%")
-	end
 end
